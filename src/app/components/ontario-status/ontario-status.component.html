@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ontario Status</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="csvData.length > 0">
+    <h2>Ontario COVID-19 Status</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Cases</th>
+          <th>Recoveries</th>
+          <th>Deaths</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of csvData">
+          <td>{{ row.date }}</td>
+          <td>{{ row.cases }}</td>
+          <td>{{ row.recoveries }}</td>
+          <td>{{ row.deaths }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="csvData.length === 0">
+    <p>Loading data...</p>
+  </div>
+</ion-content>
